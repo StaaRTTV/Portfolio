@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Gabrielle P." description="">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="A propos"
+				tagline="Merci de votre interet pour mon portfolio ! Apprenez-en plus sur moi ci dessous"
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Jeanine White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Présentation</h2>
+				<div class="content">
+					<p>
+						Passionnée par les nouvelles technologies, la cybersécurité, et le monde du gaming, je suis une étudiante déterminée à contribuer au domaine de la sécurité informatique tout en partageant ma passion à travers mes streams. Mon parcours académique en cybersécurité, ma créativité en design, et mon savoir-faire en marketing sur Internet font de moi une professionnelle polyvalente.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>⭐️ Clonlara, Ann Arbor, high school diploma en computer science (2021-2024)
+						 </p>⭐️ Cisco Networking Academy graduate, Junior Cybersecurity Analyst (2023)
+					          <p>                        ⭐️ CS50 harvard Introduction to computer science (2023-2024)
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>• Marketing en ligne
+						<p>• Gestion de projet
+							<p>• Gestion d'équipe
+								<p>• Montage vidéo
+									<p>• Design d'interface
+								</p>
+						</p>
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
